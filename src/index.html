@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Badge Builder</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <span id="logo-app">
+        <!-- Light & dark logo SVGs (switch with theme) -->
+        <svg
+          id="logo-light"
+          width="36"
+          height="36"
+          viewBox="0 0 64 64"
+          fill="none"
+        >
+          <circle cx="32" cy="32" r="30" fill="#007ec6" />
+          <text
+            x="32"
+            y="40"
+            text-anchor="middle"
+            font-size="28"
+            font-family="Segoe UI"
+            fill="#fff"
+            font-weight="bold"
+          >
+            B
+          </text>
+        </svg>
+        <svg
+          id="logo-dark"
+          width="36"
+          height="36"
+          viewBox="0 0 64 64"
+          fill="none"
+          style="display: none"
+        >
+          <circle cx="32" cy="32" r="30" fill="#1da1f2" />
+          <text
+            x="32"
+            y="40"
+            text-anchor="middle"
+            font-size="28"
+            font-family="Segoe UI"
+            fill="#161a1d"
+            font-weight="bold"
+          >
+            B
+          </text>
+        </svg>
+      </span>
+      <span style="font-size: 1.5rem; font-weight: bold; margin-left: 0.4em"
+        >Badge Builder</span
+      >
+      <button id="theme-toggle" title="Toggle theme">
+        <svg
+          id="icon-sun"
+          width="26"
+          height="26"
+          viewBox="0 0 24 24"
+          fill="none"
+          style="vertical-align: middle"
+        >
+          <circle cx="12" cy="12" r="5" fill="#ffc32b" />
+          <g stroke="#ffc32b" stroke-width="2">
+            <line x1="12" y1="2" x2="12" y2="4" />
+            <line x1="12" y1="20" x2="12" y2="22" />
+            <line x1="2" y1="12" x2="4" y2="12" />
+            <line x1="20" y1="12" x2="22" y2="12" />
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+          </g>
+        </svg>
+        <svg
+          id="icon-moon"
+          width="26"
+          height="26"
+          viewBox="0 0 24 24"
+          fill="none"
+          style="display: none; vertical-align: middle"
+        >
+          <path
+            d="M21 12.79A9 9 0 0112.21 3a7 7 0 100 18A9 9 0 0021 12.79z"
+            fill="#aad7fd"
+            stroke="#aad7fd"
+            stroke-width="2"
+          />
+        </svg>
+      </button>
+    </header>
+    <main>
+      <section class="config-panel">
+        <h2 id="form-title">Create a Badge</h2>
+        <form id="badge-form" autocomplete="off">
+          <label>
+            Label
+            <input type="text" id="label" required placeholder="e.g. Docker" />
+          </label>
+          <label>
+            Message
+            <input type="text" id="message" required placeholder="e.g. ready" />
+          </label>
+          <label>
+            Color
+            <input type="color" id="color" value="#007ec6" />
+          </label>
+          <label>
+            Style
+            <select id="style">
+              <option value="flat">Flat</option>
+              <option value="flat-square">Flat Square</option>
+              <option value="plastic">Plastic</option>
+              <option value="for-the-badge">For the Badge</option>
+              <option value="social">Social</option>
+            </select>
+          </label>
+          <label>
+            Logo (optional)
+            <input list="logos" id="logo" placeholder="e.g. docker, github" />
+            <datalist id="logos">
+              <option value="docker"></option>
+              <option value="github"></option>
+              <option value="node.js"></option>
+              <option value="npm"></option>
+              <option value="python"></option>
+              <option value="react"></option>
+              <option value="typescript"></option>
+              <option value="javascript"></option>
+              <option value="angular"></option>
+              <option value="vue.js"></option>
+              <option value="alpine.js"></option>
+              <option value="php"></option>
+              <option value="nginx"></option>
+              <option value="postgresql"></option>
+              <option value="mysql"></option>
+              <option value="sqlite"></option>
+              <option value="mongodb"></option>
+              <option value="tensorflow"></option>
+              <option value="keras"></option>
+              <option value="django"></option>
+              <option value="flask"></option>
+              <option value="pytorch"></option>
+              <option value="linux"></option>
+              <option value="windows"></option>
+              <option value="ubuntu"></option>
+              <option value="debian"></option>
+              <option value="centos"></option>
+              <option value="fedora"></option>
+              <option value="redis"></option>
+              <option value="rabbitmq"></option>
+              <option value="rust"></option>
+              <option value="go"></option>
+              <option value="c"></option>
+              <option value="c++"></option>
+              <option value="java"></option>
+              <option value="matlab"></option>
+              <option value="r"></option>
+              <option value="octave"></option>
+              <option value="slack"></option>
+              <option value="jira"></option>
+              <option value="confluence"></option>
+              <option value="trello"></option>
+              <option value="asana"></option>
+              <option value="githubactions"></option>
+              <option value="gitlab"></option>
+              <option value="bitbucket"></option>
+              <option value="heroku"></option>
+              <option value="netlify"></option>
+              <option value="vercel"></option>
+              <option value="digitalocean"></option>
+              <option value="aws"></option>
+              <option value="azure"></option>
+              <option value="googlecloud"></option>
+              <option value="firebase"></option>
+              <option value="kubernetes"></option>
+              <option value="helm"></option>
+              <option value="grafana"></option>
+              <option value="prometheus"></option>
+              <option value="datadog"></option>
+              <option value="jenkins"></option>
+              <option value="circleci"></option>
+              <option value="travisci"></option>
+              <option value="appveyor"></option>
+              <option value="codeship"></option>
+              <option value="teamcity"></option>
+              <option value="microsoft"></option>
+              <option value="apple"></option>
+              <option value="android"></option>
+              <option value="chrome"></option>
+              <option value="firefox"></option>
+              <option value="safari"></option>
+              <option value="edge"></option>
+              <option value="opera"></option>
+              <option value="bash"></option>
+              <option value="zsh"></option>
+              <option value="powershell"></option>
+              <option value="shell"></option>
+              <option value="unity"></option>
+              <option value="unrealengine"></option>
+              <option value="godot"></option>
+              <option value="wordpress"></option>
+              <option value="drupal"></option>
+              <option value="joomla"></option>
+              <option value="shopify"></option>
+              <option value="magento"></option>
+              <option value="woocommerce"></option>
+              <option value="prestashop"></option>
+              <option value="bootstrap"></option>
+              <option value="sass"></option>
+              <option value="less"></option>
+              <option value="tailwindcss"></option>
+              <option value="materialui"></option>
+              <option value="bulma"></option>
+              <option value="semanticui"></option>
+              <option value="antdesign"></option>
+              <option value="storybook"></option>
+              <option value="next.js"></option>
+              <option value="nuxt.js"></option>
+              <option value="gatsby"></option>
+              <option value="eleventy"></option>
+              <option value="jekyll"></option>
+              <option value="hugo"></option>
+              <option value="svelte"></option>
+              <option value="ember.js"></option>
+              <option value="backbone.js"></option>
+              <option value="express"></option>
+              <option value="fastapi"></option>
+              <option value="spring"></option>
+              <option value="laravel"></option>
+              <option value="symfony"></option>
+              <option value="zend"></option>
+              <option value="cakephp"></option>
+              <option value="yii"></option>
+              <option value="codeigniter"></option>
+              <option value="dotnet"></option>
+              <option value="ruby"></option>
+              <option value="rails"></option>
+              <option value="perl"></option>
+              <option value="elixir"></option>
+              <option value="clojure"></option>
+              <option value="scala"></option>
+              <option value="haskell"></option>
+              <option value="fsharp"></option>
+              <option value="solidity"></option>
+              <option value="ethereum"></option>
+              <option value="bitcoin"></option>
+              <option value="polkadot"></option>
+              <option value="binance"></option>
+              <option value="cardano"></option>
+              <option value="solana"></option>
+              <option value="ipfs"></option>
+              <option value="graphql"></option>
+              <option value="apollo"></option>
+              <option value="rest"></option>
+              <option value="swagger"></option>
+              <option value="openapi"></option>
+              <option value="postman"></option>
+              <option value="swaggerhub"></option>
+              <option value="swaggerui"></option>
+              <option value="mailgun"></option>
+              <option value="sendgrid"></option>
+              <option value="mailchimp"></option>
+              <option value="twilio"></option>
+              <option value="stripe"></option>
+              <option value="paypal"></option>
+              <option value="braintree"></option>
+              <option value="square"></option>
+              <option value="plaid"></option>
+              <option value="algolia"></option>
+              <option value="elastic"></option>
+              <option value="cassandra"></option>
+              <option value="couchdb"></option>
+              <option value="influxdb"></option>
+              <option value="timescaledb"></option>
+              <option value="prometheus"></option>
+              <option value="grafana"></option>
+              <option value="rabbitmq"></option>
+              <option value="kafka"></option>
+              <option value="celery"></option>
+              <option value="puppeteer"></option>
+              <option value="cypress"></option>
+              <option value="playwright"></option>
+              <option value="jest"></option>
+              <option value="mocha"></option>
+              <option value="jasmine"></option>
+              <option value="pytest"></option>
+              <option value="junit"></option>
+              <option value="testng"></option>
+              <option value="selenium"></option>
+              <option value="karma"></option>
+              <option value="enzyme"></option>
+              <option value="mozilla"></option>
+              <option value="mariadb"></option>
+              <option value="oracle"></option>
+              <option value="couchbase"></option>
+              <option value="arangodb"></option>
+              <option value="dynamodb"></option>
+              <option value="faunadb"></option>
+              <option value="supabase"></option>
+              <option value="hasura"></option>
+              <option value="firebaseauth"></option>
+              <option value="auth0"></option>
+              <option value="passport"></option>
+              <option value="okta"></option>
+              <option value="keycloak"></option>
+              <option value="netlifycms"></option>
+              <option value="strapi"></option>
+              <option value="contentful"></option>
+              <option value="sanity"></option>
+              <option value="forestry"></option>
+              <option value="graphcms"></option>
+              <option value="prismic"></option>
+              <option value="ghost"></option>
+              <option value="notion"></option>
+              <option value="airtable"></option>
+              <option value="clickup"></option>
+              <option value="monday"></option>
+              <option value="zapier"></option>
+              <option value="ifttt"></option>
+              <option value="make"></option>
+              <option value="n8n"></option>
+              <option value="gitbook"></option>
+              <option value="readthedocs"></option>
+              <option value="docusaurus"></option>
+              <option value="docsify"></option>
+              <option value="docz"></option>
+              <option value="vuepress"></option>
+              <option value="mkdocs"></option>
+              <option value="swaggereditor"></option>
+              <option value="redoc"></option>
+              <option value="tableau"></option>
+              <option value="looker"></option>
+              <option value="metabase"></option>
+              <option value="superset"></option>
+              <option value="powerbi"></option>
+              <option value="qlik"></option>
+              <option value="splunk"></option>
+              <option value="databricks"></option>
+              <option value="snowflake"></option>
+              <option value="bigquery"></option>
+              <option value="athena"></option>
+              <option value="awslambda"></option>
+              <option value="awscloudformation"></option>
+              <option value="terraform"></option>
+              <option value="pulumi"></option>
+              <option value="ansible"></option>
+              <option value="chef"></option>
+              <option value="puppet"></option>
+              <option value="saltstack"></option>
+              <option value="packer"></option>
+              <option value="vagrant"></option>
+              <option value="openstack"></option>
+              <option value="proxmox"></option>
+              <option value="kvm"></option>
+              <option value="qemu"></option>
+              <option value="vmware"></option>
+              <option value="virtualbox"></option>
+              <option value="parallels"></option>
+              <option value="citrix"></option>
+              <option value="xen"></option>
+              <option value="minikube"></option>
+              <option value="rancher"></option>
+              <option value="openshift"></option>
+              <option value="istio"></option>
+              <option value="linkerd"></option>
+              <option value="envoy"></option>
+              <option value="kong"></option>
+              <option value="traefik"></option>
+              <option value="haproxy"></option>
+              <option value="ngrok"></option>
+              <option value="cloudflare"></option>
+              <option value="fastly"></option>
+              <option value="akamai"></option>
+              <option value="verisign"></option>
+              <option value="letsencrypt"></option>
+              <option value="sendinblue"></option>
+              <option value="mailjet"></option>
+              <option value="postfix"></option>
+              <option value="dovecot"></option>
+              <option value="exim"></option>
+              <option value="zimbra"></option>
+              <option value="roundcube"></option>
+              <option value="rainloop"></option>
+              <option value="sogo"></option>
+              <option value="gitea"></option>
+              <option value="gogs"></option>
+              <option value="phabricator"></option>
+              <option value="sourcehut"></option>
+              <option value="reviewboard"></option>
+              <option value="gerrit"></option>
+              <option value="crucible"></option>
+              <option value="mercurial"></option>
+              <option value="bazaar"></option>
+              <option value="subversion"></option>
+              <option value="cvs"></option>
+              <option value="fossil"></option>
+              <option value="bitbucketpipelines"></option>
+              <option value="gcpfunctions"></option>
+              <option value="cloudrun"></option>
+              <option value="alibabacloud"></option>
+              <option value="tencentcloud"></option>
+              <option value="baiducloud"></option>
+              <option value="yandexcloud"></option>
+              <option value="ovhcloud"></option>
+              <option value="digitaloceanapp"></option>
+              <option value="vultr"></option>
+              <option value="linode"></option>
+              <option value="hetzner"></option>
+              <option value="scaleway"></option>
+              <option value="contabo"></option>
+              <option value="upcloud"></option>
+              <option value="dreamhost"></option>
+              <option value="siteground"></option>
+              <option value="wix"></option>
+              <option value="weebly"></option>
+              <option value="squarespace"></option>
+              <option value="webflow"></option>
+              <option value="ghostcms"></option>
+              <option value="umbraco"></option>
+              <option value="dotcms"></option>
+              <option value="plone"></option>
+              <option value="silverstripe"></option>
+              <option value="concrete5"></option>
+              <option value="bolt"></option>
+              <option value="statamic"></option>
+              <option value="craftcms"></option>
+              <option value="serendipity"></option>
+              <option value="typo3"></option>
+              <option value="modx"></option>
+              <option value="textpattern"></option>
+              <option value="getkirby"></option>
+            </datalist>
+          </label>
+          <label>
+            Link (optional)
+            <input
+              type="url"
+              id="link"
+              placeholder="e.g. https://docker.com/"
+            />
+          </label>
+          <div style="display: flex; gap: 0.6rem">
+            <button type="submit" id="submit-btn">Add Badge</button>
+            <button type="button" id="cancel-edit" style="display: none">
+              Cancel
+            </button>
+          </div>
+        </form>
+      </section>
+      <section class="preview-panel">
+        <h2>Badges</h2>
+        <div id="badges-list"></div>
+      </section>
+    </main>
+    <footer>
+      <span>Badge Builder by HL Varona (2025)</span>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
