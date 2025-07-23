@@ -4,7 +4,7 @@
 
 ## Website available at
 
-[https://badge-hlvarona.pages.dev](https://listman-hlvarona.pages.dev)
+[https://bb-hlvarona.pages.dev](https://bb-hlvarona.pages.dev)
 
 ---
 
